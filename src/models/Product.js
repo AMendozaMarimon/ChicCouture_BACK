@@ -20,12 +20,8 @@ module.exports = (sequelize) => {
         type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: false,
       },
-      brand: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
       composition: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false,
       },
       price: {
@@ -33,7 +29,7 @@ module.exports = (sequelize) => {
         allowNull: false,
       },
       description: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false,
       },
     },

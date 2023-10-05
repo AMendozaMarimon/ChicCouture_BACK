@@ -15,9 +15,17 @@ for (const modelDefiner of modelDefiners) {
   modelDefiner(sequelize);
 }
 
+// Traigo todos los modelos
 const { Product, Brand } = sequelize.models;
+
+// Hago relaciones con los modelos
+
+//Brand tiene muchos Product
+Brand.hasMany(Product, {foreignKey: 'brandId', });
+Product.belongsTo(Brand, {foreignKey: 'brandId', })
 
 module.exports = {
   conn: sequelize,
   Product,
+  Brand,
 };

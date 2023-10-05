@@ -2,15 +2,16 @@ const { DataTypes } = require("sequelize");
 //Importo una función que permite definir modelos
 
 module.exports = (sequelize) => {
-    //Defino el modelo con sus propiedades
+  //Defino el modelo con sus propiedades
   sequelize.define(
     "Product",
     {
       id: {
         type: DataTypes.UUID,
-        defaultValue: sequelize.UUIDV4,
+        defaultValue: DataTypes.UUIDV4, 
         primaryKey: true,
-      },
+        allowNull: false, 
+      },      
       name: {
         type: DataTypes.STRING,
         allowNull: false,

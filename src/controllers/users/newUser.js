@@ -2,6 +2,7 @@ const { User } = require("../../db/sequelize");
 const bcrypt = require("bcrypt");
 
 const addNewUser = async (req, res) => {
+  // Obtengo los datos del usuario
   const { name, lastName, age, country, email, password, status, tel } =
     req.body;
 
@@ -13,6 +14,7 @@ const addNewUser = async (req, res) => {
       .status(400)
       .json({ error: "Por favor, completa todos los campos obligatorios." });
   }
+
   try {
     // Verifica si el email ya está registrado en la base de datos
     const existingUser = await User.findOne({
@@ -39,7 +41,9 @@ const addNewUser = async (req, res) => {
       tel,
     });
 
-    return res.status(201).json({ message: `Este es el nuevo usuario ${newUser}`});
+    return res
+      .status(201)
+      .json({ message: `Este es el nuevo usuario ${newUser}` });
   } catch (error) {
     console.error(error);
   }

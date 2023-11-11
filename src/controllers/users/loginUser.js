@@ -28,7 +28,7 @@ const loginUser = async (req, res) => {
     const validPassword = await bcrypt.compare(password, user.password);
 
     if (!validPassword) {
-      return res.status(400).json({ error: "Contraseña incorrecta." });
+      return res.status(401).json({ error: "Contraseña incorrecta." });
     }
     return res.status(200).json({ user });
   } catch (error) {

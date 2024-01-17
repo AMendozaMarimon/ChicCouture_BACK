@@ -18,7 +18,6 @@ module.exports = (sequelize) => {
       },
       lastName: {
         type: DataTypes.STRING,
-        allowNull: false,
       },
       age: {
         type: DataTypes.INTEGER,
@@ -26,11 +25,9 @@ module.exports = (sequelize) => {
           min: 18,
           max: 120,
         },
-        allowNull: false,
       },
       country: {
         type: DataTypes.STRING,
-        allowNull: false,
       },
       email: {
         type: DataTypes.STRING,
@@ -55,12 +52,10 @@ module.exports = (sequelize) => {
       },
       image: {
         type: DataTypes.TEXT,
-        allowNull: false,
         defaultValue: "dddddd.png",
       },
       tel: {
         type: DataTypes.INTEGER,
-        allowNull: false,
       },
       ban: {
         type: DataTypes.BOOLEAN,

@@ -3,15 +3,12 @@ const bcrypt = require("bcrypt");
 
 const addNewUser = async (req, res) => {
   // Obtengo los datos del usuario
-  const { name, lastName, age, country, email, password, status, tel } =
-    req.body;
+  const { name, email, password } = req.body;
 
   // Si todos los campos no llegan enviará el mensaje auto.
-  if (
-    !(name && lastName && age && country && email && password && status && tel)
-  ) {
+  if (!(name && email && password)) {
     return res
-      .status(400)
+      .status(401)
       .json({ error: "Por favor, completa todos los campos obligatorios." });
   }
 
@@ -32,18 +29,13 @@ const addNewUser = async (req, res) => {
     // Creo el usuario en la base de datos
     const newUser = await User.create({
       name,
-      lastName,
-      age,
-      country,
       email,
       password: hashedPassword,
-      status,
-      tel,
     });
 
     return res
       .status(201)
-      .json({ message: `Este es el nuevo usuario ${newUser}` });
+      .json({ message: `Este es el nuevo usuario ${newUser.name}` });
   } catch (error) {
     console.error(error);
   }

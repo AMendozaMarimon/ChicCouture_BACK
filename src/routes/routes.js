@@ -19,7 +19,7 @@ router.delete('/products/:id', deleteProduct); //Elimina un producto
 router.delete('/brand/:id', deleteBrand);
 
 // Rutas de los Usuarios
-router.post("/user", addNewUser);
+router.post("/register", addNewUser);
 router.post("/login", loginUser);
 
 // Rutas de los Filtros

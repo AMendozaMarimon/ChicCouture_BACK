@@ -12,7 +12,7 @@ const loginUser = async (req, res) => {
         .json({ error: "Por favor, completa todos los campos obligatorios." });
     }
 
-    // Busco el usuario en la base de datos
+    // Busco el usuario en la base de datos 
     const user = await User.findOne({
       where: { email },
     });
